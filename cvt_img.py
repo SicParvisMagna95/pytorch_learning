@@ -6,16 +6,16 @@ import os
 
 if __name__ == "__main__":
     # vgg16 = models.vgg16(pretrained=True,num_class=10)
-    mnist_test = Datasets.MNIST(r'E:\data', train=False, download=False)
-    print('Test set: ', len(mnist_test))
+    mnist_train = Datasets.MNIST('/home/chauncy/data', train=True, download=False)
+    print('train set: ', len(mnist_train))
 
 
-    test_label = open(r'E:\data\MNIST\img\test_label.txt','w')
-    for i,(img,label) in enumerate(mnist_test):
-        img_path = os.path.join(r'E:\data\MNIST\img\test_img', str(i).zfill(5)+'.jpg')
+    train_label = open('/home/chauncy/data/MNIST/img/train_label.txt','w')
+    for i,(img,label) in enumerate(mnist_train):
+        img_path = os.path.join('/home/chauncy/data/MNIST/img/train_img', str(i).zfill(5)+'.jpg')
         img.save(img_path)
-        test_label.write(img_path+'\t'+str(label)+'\n')
+        train_label.write(img_path+'\t'+str(label)+'\n')
 
-    test_label.close()
+    train_label.close()
 
 

@@ -5,17 +5,16 @@ import glob
 import cv2
 
 
-
 class Mydatasets(Dataset):
     def __init__(self, train=True, transform=None):
         super(Mydatasets, self).__init__()
         # self.train = train
         if train:
             # img_dir = r'E:\data\MNIST\img\train_img'
-            label_txt = r'E:\data\MNIST\img\train_label.txt'
+            label_txt = '/home/chauncy/data/MNIST/img/train_label.txt'
         else:
             # img_dir = r'E:\data\MNIST\img\test_img'
-            label_txt = r'E:\data\MNIST\img\test_label.txt'
+            label_txt = '/home/chauncy/data/MNIST/img/test_label.txt'
 
         labels = open(label_txt)
         self.images = []
